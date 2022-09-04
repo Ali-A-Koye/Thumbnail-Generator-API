@@ -1,5 +1,6 @@
 {
   "extends": "fastify-tsconfig",
+  "ts-node": {  "files": true },
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true
