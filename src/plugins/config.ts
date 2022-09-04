@@ -10,7 +10,7 @@ declare module "fastify" {
 export default fp(async (fastify) => {
   const schema = {
     type: "object",
-    required: ["PORT"],
+    required: ["PORT","RABBITMQ_URL"],
     properties: {
       PORT: {
         type: "string",
@@ -33,7 +33,6 @@ export default fp(async (fastify) => {
 
   fastify.register(fastifyEnv, options).ready((err) => {
     if (err) console.error(err);
-    // console.log(fastify.config); 
   });
 },{
     name: "config"

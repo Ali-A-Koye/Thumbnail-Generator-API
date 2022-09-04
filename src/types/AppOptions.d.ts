@@ -1,7 +1,5 @@
 import { AutoloadPluginOptions } from "@fastify/autoload";
 
-type AppOptions = {
-  // Place your custom options for app below here.
-} & Partial<AutoloadPluginOptions>;
+type AppOptions = {} & Partial<AutoloadPluginOptions>;
 
 export default AppOptions;
