@@ -16,6 +16,22 @@ const thumbnailPostSchema: RouteShorthandOptions = {
   }
 };
 
+const thumbnailGetSchema: RouteShorthandOptions =  {
+  schema: {
+    response: {
+      200: {
+        type: "object",
+        properties: {
+          data: {
+            type: "array",
+          },
+        },
+      },
+    },
+  },
+}
+
 export default {
-  thumbnailPostSchema
+  thumbnailPostSchema,
+  thumbnailGetSchema
 };

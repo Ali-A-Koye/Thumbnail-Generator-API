@@ -34,11 +34,13 @@ const files = (path: string) =>
       }>
     ).forEach((module) => {
       for (const property in module.schema.default) {
+        // if(JSON.stringify((module.schema.default as any)[property]).indexOf("$") > -1) {
         (module.schema.default as any)[property].validatorCompiler = (
           fields: any
         ) => {
           return (data: any) => fields.schema.validate(data);
         };
+      // }
       }
 
       schemas[module.name] = module.schema.default;
