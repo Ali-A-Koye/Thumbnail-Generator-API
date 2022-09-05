@@ -3,7 +3,9 @@ import fastifyEnv from "@fastify/env";
 
 declare module "fastify" {
   interface FastifyInstance {
-    config: {};
+    config: {
+      [key: string]: string;
+    };
   }
 }
 
@@ -19,6 +21,10 @@ export default fp(async (fastify) => {
       RABBITMQ_URL:{
         type: "string",
         default: "amqp://localhost",
+      },
+      MONGO_URI:{
+        type: "string",
+        default: "http://localhost",
       }
     },
   };

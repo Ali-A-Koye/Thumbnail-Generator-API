@@ -7,7 +7,6 @@ import sensible, { SensibleOptions } from '@fastify/sensible'
  * @see https://github.com/fastify/fastify-sensible
  */
 export default fp<SensibleOptions>(async (fastify) => {
-  console.log(fastify.config,"sensible")
   fastify.register(sensible)
 },{
   dependencies: ["config"]

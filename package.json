@@ -29,9 +29,12 @@
     "@fastify/autoload": "^5.0.0",
     "@fastify/env": "^4.1.0",
     "@fastify/sensible": "^5.0.0",
+    "@types/mongodb": "^4.0.7",
+    "@types/mongoose": "^5.11.97",
     "fastify": "^4.0.0",
     "fastify-cli": "^5.4.1",
-    "fastify-plugin": "^4.0.0"
+    "fastify-plugin": "4.2.1",
+    "mongoose": "^6.5.4"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
