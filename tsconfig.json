@@ -1,6 +1,7 @@
 {
   "extends": "fastify-tsconfig",
   "ts-node": {  "files": true },
+  "esModuleInterop": true,
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true
