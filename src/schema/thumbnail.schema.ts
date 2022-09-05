@@ -1,7 +1,7 @@
 import * as Joi from "joi";
 import { RouteShorthandOptions } from "fastify";
 
-const thumbnailSchema: RouteShorthandOptions = {
+const thumbnailPostSchema: RouteShorthandOptions = {
   schema: {
     body: Joi.object()
       .keys({
@@ -13,10 +13,9 @@ const thumbnailSchema: RouteShorthandOptions = {
         type: "string",
       },
     },
-  },
-  validatorCompiler: (fields: any) => {
-    return (data) => fields.schema.validate(data);
-  },
+  }
 };
 
-export default thumbnailSchema;
+export default {
+  thumbnailPostSchema
+};

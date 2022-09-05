@@ -27,10 +27,20 @@ const files = (path: string) =>
       modules as Array<{
         name: string;
         schema: {
-          default: {};
+          default: {
+            validatorCompiler: (fields: any) => (data: any) => any;
+          };
         };
       }>
     ).forEach((module) => {
+      for (const property in module.schema.default) {
+        (module.schema.default as any)[property].validatorCompiler = (
+          fields: any
+        ) => {
+          return (data: any) => fields.schema.validate(data);
+        };
+      }
+
       schemas[module.name] = module.schema.default;
     });
 

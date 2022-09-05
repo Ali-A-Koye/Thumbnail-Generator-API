@@ -5,7 +5,9 @@ import filesLoader from "../utils/files-loader";
 declare module "fastify" {
   interface FastifyInstance {
     schema: {
-      [key: string]: RouteShorthandOptions;
+      [key: string]: {
+        [key: string]: RouteShorthandOptions;
+      };
     };
   }
 }
@@ -18,7 +20,8 @@ const pluginCallback: FastifyPluginCallback = async (
   const schemas = await filesLoader("/../schema/*.schema");
 
   fastify.decorate("schema", schemas);
-
+  
+  fastify.log.info("Schema Loaded");
   next();
 };
 
