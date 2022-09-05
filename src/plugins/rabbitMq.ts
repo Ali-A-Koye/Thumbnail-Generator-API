@@ -1,10 +1,20 @@
 import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import * as amqplib from "amqplib";
+import rabbitMQ from "../jobs/rabbitMQ";
+import CreateExchange from "../types/createExchange";
+import Publish from "../types/Publish";
+import Consumer from "../types/Consumer";
 
 declare module "fastify" {
   interface FastifyInstance {
-    amqp: amqplib.Connection;
+    amqp: {
+      connection : amqplib.Connection;
+      createChannel : (connection: amqplib.Connection) => Promise<amqplib.Channel>;
+      createExchange : (channel: amqplib.Channel, data: CreateExchange) => Promise<amqplib.Replies.AssertExchange>;
+      publish : (channel: amqplib.Channel, data: Publish) => Promise<boolean>;
+      consumerSubscribe : (channel: amqplib.Channel, data: Consumer, callback: Function) => Promise<boolean>;
+    };
   }
 }
 
@@ -13,16 +23,23 @@ const pluginCallback: FastifyPluginCallback = async (
   options,
   next
 ) => {
-  await amqplib
+  let connection = await amqplib
     .connect(fastify.config.RABBITMQ_URL)
-    .then(() => {
+    .then((c) => {
       fastify.log.info("Connected to RabbitMQ");
+      return c;
     })
     .catch((err) => {
       fastify.log.error(err);
     });
 
-  fastify.decorate("amqp", amqplib);
+  fastify.decorate("amqp", {
+    connection,
+    createChannel: rabbitMQ.createChannel,
+    createExchange: rabbitMQ.createExchange,
+    publish: rabbitMQ.publish,
+    consumerSubscribe: rabbitMQ.consumerSubscribe,
+  });
 
   next();
 };
