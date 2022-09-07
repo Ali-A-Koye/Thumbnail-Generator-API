@@ -13,6 +13,11 @@ const thumbnailPostSchema: RouteShorthandOptions = {
         type: "string",
       },
     },
+  },
+validatorCompiler : (
+    fields: any
+  ) => {
+    return (data: any) => fields.schema.validate(data);
   }
 };
 
