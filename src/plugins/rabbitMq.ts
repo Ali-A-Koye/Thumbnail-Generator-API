@@ -1,8 +1,8 @@
 import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import * as amqplib from "amqplib";
-import rabbitMQ from "../jobs/rabbitMQ";
-import CreateExchange from "../types/createExchange";
+import rabbitMQ from "../services/rabbitMq";
+import CreateExchange from "../types/CreateExchange";
 import Publish from "../types/Publish";
 import Consumer from "../types/Consumer";
 

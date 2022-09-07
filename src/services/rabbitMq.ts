@@ -1,5 +1,5 @@
 import { Channel, Connection } from "amqplib";
-import CreateExchange from "../types/createExchange";
+import CreateExchange from "../types/CreateExchange";
 import Publish from "../types/Publish";
 import Consumer from "../types/Consumer";
 
@@ -27,6 +27,7 @@ const publish = async (channel: Channel, data: Publish) => {
   channel.publish(exchangeName, routingKey, Buffer.from(message), options);
 };
 
+
 const consumerSubscribe = async (
   channel: Channel,
   data: Consumer,
@@ -39,6 +40,7 @@ const consumerSubscribe = async (
   channel.bindQueue(queueName, exchangeName, routingKey, bindOptions);
   channel.consume(queueName, (msg) => callback(msg));
 };
+
 export default {
   createExchange,
   createChannel,
