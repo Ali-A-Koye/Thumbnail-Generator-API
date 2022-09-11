@@ -25,6 +25,14 @@ export default fp(async (fastify) => {
       MONGO_URI:{
         type: "string",
         default: "http://localhost",
+      },
+      UPLOADER_QUEUE_NAME:{
+        type: "string",
+        default: "uploader",
+      },
+      UPLOADER_EXCHANGE_NAME:{
+        type: "string",
+        default: "uploaderExchange",
       }
     },
   };

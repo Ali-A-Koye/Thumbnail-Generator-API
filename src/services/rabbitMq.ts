@@ -34,7 +34,7 @@ const consumerSubscribe = async (
   callback: Function
 ) => {
   const { queueName, exchangeName, queueOptions, routingKey, bindOptions } =
-    data;
+    data; 
 
   await channel.assertQueue(queueName, queueOptions);
   channel.bindQueue(queueName, exchangeName, routingKey, bindOptions);
