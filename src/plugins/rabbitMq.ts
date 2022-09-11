@@ -46,4 +46,5 @@ const pluginCallback: FastifyPluginCallback = async (
 
 export default fp(pluginCallback, {
   dependencies: ["config"],
+  name: "rabbitMq"
 });
