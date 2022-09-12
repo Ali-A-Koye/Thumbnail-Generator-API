@@ -33,6 +33,14 @@ export default fp(async (fastify) => {
       UPLOADER_EXCHANGE_NAME:{
         type: "string",
         default: "uploaderExchange",
+      },
+      RESIZER_QUEUE_NAME:{
+        type: "string",
+        default: "resizer",
+      },
+      RESIZER_EXCHANGE_NAME:{
+        type: "string",
+        default: "resizerExchange",
       }
     },
   };
