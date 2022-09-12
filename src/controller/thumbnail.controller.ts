@@ -1,6 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 
 const postThumbnail = async (req: FastifyRequest, reply: FastifyReply) => {
+
   const fastify = req.server;
 
   fastify.amqp.publish(fastify.uploader.channel, {
