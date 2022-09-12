@@ -1,5 +1,5 @@
 const handler = (msg: any) => {
-    console.log(msg.content.toString() , "received from uploader handler");
+    console.log(msg.content, "received from uploader handler");
 }
 
 

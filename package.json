@@ -36,7 +36,7 @@
     "fastify-cli": "^5.4.1",
     "fastify-multer": "^2.0.3",
     "fastify-plugin": "4.2.1",
-    "fastify-universal-file-parser": "^1.0.4",
+    "fastify-universal-file-parser": "^1.0.6",
     "glob": "^8.0.3",
     "joi": "^17.6.0",
     "lodash": "^4.17.21",
