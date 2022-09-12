@@ -38,7 +38,7 @@ const consumerSubscribe = async (
 
   await channel.assertQueue(queueName, queueOptions);
   channel.bindQueue(queueName, exchangeName, routingKey, bindOptions);
-  channel.consume(queueName, (msg) => callback(msg));
+  channel.consume(queueName, (msg) => callback(msg),{noAck: true});
 };
 
 export default {

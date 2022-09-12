@@ -1,6 +1,16 @@
 import fp from "fastify-plugin";
 import { FastifyPluginCallback } from "fastify";
 import uploadHandler from "../../handlers/uploader";
+import * as amqplib from "amqplib";
+
+declare module "fastify" {
+  interface FastifyInstance {
+    uploader: {
+      channel : amqplib.Channel
+    }
+  }
+}
+
 const pluginCallback: FastifyPluginCallback = async (
   fastify,
   options,
@@ -30,6 +40,9 @@ const pluginCallback: FastifyPluginCallback = async (
     },
     uploadHandler
   );
+
+  fastify.decorate("uploader", {channel});
+
   next();
 };
 
