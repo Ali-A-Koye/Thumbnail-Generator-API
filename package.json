@@ -41,6 +41,7 @@
     "joi": "^17.6.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.5.4",
+    "sharp": "^0.31.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "@types/glob": "^8.0.0",
     "@types/lodash": "^4.14.184",
     "@types/node": "^18.0.0",
+    "@types/sharp": "^0.30.5",
     "@types/tap": "^15.0.5",
     "@types/uuid": "^8.3.4",
     "concurrently": "^7.0.0",
